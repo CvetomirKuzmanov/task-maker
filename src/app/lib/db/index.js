@@ -1,6 +1,6 @@
 import { pool } from "./pool";
 
-export async function query (text, params) {
+export async function query (text, params) {    
     const start = Date.now()
     try {
         const res = await pool.query (text,params)

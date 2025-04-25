@@ -1,7 +1,8 @@
 export const dbConfig = {
-    user: 'postgres',
-    database: 'taskmanager',
-    host:'localhost',   
-    password: 'cveto0449',
-    port: '5432',
-}
+    user: process.env.DB_USER,
+    database: process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+    ssl: process.env.DB_SSL === 'false' ? false : { rejectUnauthorized: false }
+  }

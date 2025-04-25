@@ -1,42 +1,247 @@
+/* Task Manager CSS with Translucent Gradient Modern Look */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #e0e7ff;
+  --red-color: #ef4444;
+  --red-hover: #dc2626;
+  --red-light: #fee2e2;
+  --text-dark: #1f2937;
+  --text-muted: #4b5563;
+  --text-light: #9ca3af;
+  --bg-light: #f9fafb;
+  --border-color: #e5e7eb;
+  --gradient-start: rgba(79, 70, 229, 0.1);
+  --gradient-end: rgba(236, 72, 153, 0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --radius: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--text-dark);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 960px !important;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+  background: linear-gradient(90deg, #4f46e5, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+header p {
+  color: var(--text-muted);
+}
+
+/* Task Form Styles */
+form {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+form:hover {
+  box-shadow: var(--shadow-md);
+}
+
+form h2 {
+  color: var(--primary-color);
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.error input, .error textarea {
+  border-color: var(--red-color);
+}
+
+.error-message {
+  color: var(--red-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, var(--primary-color), #818cf8);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.3);
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, var(--primary-hover), #6366f1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.4);
+}
+
+button[type="submit"]:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Task List Styles */
+.task-list {
+  margin-top: 2rem;
+}
+
+.task-list h2 {
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Task Item Styles */
+li.task-item {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+li.task-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.task-item h3 {
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.task-item p {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+
+.task-item .date {
+  color: var(--text-light);
+  font-size: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.delete-button {
+  background: transparent;
+  color: var(--red-color);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  background: var(--red-light);
+  color: var(--red-hover);
+}
+
+/* Loading State */
+.loading-placeholder {
+  background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 50%, #f1f5f9 100%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: var(--radius);
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 3rem 0;
+  color: var(--text-light);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius);
+  border: 1px dashed var(--border-color);
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Error State */
+.error-alert {
+  background: var(--red-light);
+  border: 1px solid #fca5a5;
+  color: var(--red-color);
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  main {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  form, li.task-item {
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
   }
 }

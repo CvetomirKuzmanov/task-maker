@@ -1,56 +1,62 @@
-# 📝 Task Maker – A Next.js App
+# Task Maker – A Next.js Application
 
-A simple and organized task management tool built with **Next.js** and **PostgreSQL**.
-
-## 🚀 Features
-
-- Organized project structure for scalability
-- Backend using PostgreSQL with Prisma ORM
-- Environment-based configuration for secure setup
+**Task Maker** is a clean and scalable task management application built with **Next.js** and **PostgreSQL**, designed for simplicity and maintainability.
 
 ---
 
-## 📁 Project Structure
+## Features
 
-Uses a normal ORM structure
+- Modular and maintainable project architecture  
+- PostgreSQL backend for robust data storage  
+- Secure, environment-based configuration  
+- Optional styling with Tailwind CSS  
 
 ---
 
-## 🛠️ Setup Instructions
+## Project Structure
 
-### 1. Clone the repository
+The project follows a conventional full-stack structure with a clear separation between frontend and backend logic.
+
+---
+
+## Setup Instructions
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/task-maker.git
 cd task-maker
 
-2. Install dependencies
+2. Install Dependencies
 
 npm install
 
-3. Configure Environment
+3. Configure Environment Variables
 
-Create a .env.local file in the root with your PostgreSQL connection string:
+Create a .env.local file in the root directory and add the following configuration:
 
-DATABASE_URL=postgresql://user:password@localhost:5432/taskmaker
+DB_USER=your_db_user
+DB_HOST=your_db_host
+DB_NAME=your_db_name
+DB_PASSWORD=your_db_password
+DB_PORT=5432
+DB_SSL=false
 
-    Replace user, password, and taskmaker with your actual credentials and database name.
+DATABASE_URL=postgresql://your_db_user:your_db_password@your_db_host:5432/your_db_name
 
-4. Set up the database
+Replace the placeholder values with your actual database credentials.
+4. Set Up the Database
 
-npx prisma migrate dev --name init
-
-This will initialize the database and apply the schema.
-5. Start the development server
+Ensure your PostgreSQL database is running and accessible. Apply any required SQL schema manually or through your preferred migration tool.
+5. Start the Development Server
 
 npm run dev
 
-🧠 Tech Stack
+Visit http://localhost:3000 in your browser to access the application.
+Technology Stack
 
-    Next.js – React framework
+    Next.js – React framework for building full-stack applications
 
-    PostgreSQL – Relational database
+    PostgreSQL – Open-source relational database system
 
-    Prisma – Type-safe ORM for database access
-
-    Tailwind CSS (optional) – For styling (if included)
+    Tailwind CSS (optional) – Utility-first CSS framework for rapid UI development

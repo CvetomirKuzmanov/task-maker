@@ -3,6 +3,7 @@ import { apiResponse } from "@/app/utils/api";
 import { AppError, handleError } from "@/app/utils/error";
 
 export async function GET() {
+  
   try {
     const tasks = await TaskService.getAllTasks();
     if (!tasks) {

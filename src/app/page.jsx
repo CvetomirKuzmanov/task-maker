@@ -7,12 +7,12 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export default async function HomePage() {
+
   // Server-side initial data fetching
   let initialTasks = [];
   
   try {
     initialTasks = await TaskService.getAllTasks();
-    console.log (initialTasks)
   } catch (error) {
     console.error('Failed to fetch initial tasks:', error);
     // Continue rendering with empty tasks array

@@ -1,6 +1,7 @@
 'use client'
 
 export default function TaskItem({ task, onDelete }) {
+
     return (
         <li className="border p-4 rounded-md bg-gray-50 shadow-sm">
             <div className="flex justify-between items-center">
@@ -17,7 +18,7 @@ export default function TaskItem({ task, onDelete }) {
                 <p className="mt-2 text-gray-600">{task.description}</p>
             )}
             <div className="mt-2 text-xs text-gray-400">
-                Created: {new Date(task.created_at).toLocaleString()}
+                Created: {task.create_at}
             </div>
         </li>
     );
