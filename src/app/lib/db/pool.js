@@ -1,12 +1,14 @@
 import { Pool } from "pg";
 
-let pool;
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
-if (!pool) {
-    pool = new Pool({
-        connectionString: process.env.DATABASE_URL
-      });
-}
+pool.on('error', (err) => {
+  console.error('Unexpected database connection error:', err);
+});
 
-export { pool }
-
+export { pool };
