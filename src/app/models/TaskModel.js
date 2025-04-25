@@ -3,7 +3,7 @@ import { query } from "../lib/db";
 export const TaskModel = {
   findAll: async () => {
     const result = await query('SELECT * FROM tasks ORDER BY id DESC');
-    return result.rows; // Fixed: Was 'row' instead of 'rows'
+    return result.rows; 
   },
   
   findById: async (id) => {
