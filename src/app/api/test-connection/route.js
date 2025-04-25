@@ -1,5 +1,5 @@
 // pages/api/test-connection.js or app/api/test-connection/route.js
-import { pool } from '../../path-to-your-pool-file';
+import { pool } from '../../lib/db/pool';
 
 export async function GET() {
   try {
