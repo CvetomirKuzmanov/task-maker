@@ -4,5 +4,5 @@ export const dbConfig = {
     host: process.env.DB_HOST,
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
-    ssl: process.env.DB_SSL === 'false' ? false : { rejectUnauthorized: false }
+    ssl: { rejectUnauthorized: false }
   }
