@@ -1,6 +1,4 @@
 import { TaskService } from './services/taskService';
-import TaskList from './components/tasks/TaskList';
-import TaskForm from './components/tasks/TaskForm';
 import TasksProvider from './components/tasks/TaskProvider.jsx';
 
 export const dynamic = 'force-dynamic';

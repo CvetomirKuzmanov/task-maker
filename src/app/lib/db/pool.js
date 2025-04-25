@@ -1,10 +1,11 @@
 import { Pool } from "pg";
-import { dbConfig } from "@/config/db";
 
 let pool;
 
 if (!pool) {
-    pool = new Pool(dbConfig);
+    pool = new Pool({
+        connectionString: process.env.DATABASE_URL
+      });
 }
 
 export { pool }
