@@ -6,14 +6,12 @@ export const revalidate = 0;
 
 export default async function HomePage() {
 
-  // Server-side initial data fetching
   let initialTasks = [];
   
   try {
     initialTasks = await TaskService.getAllTasks();
   } catch (error) {
     console.error('Failed to fetch initial tasks:', error);
-    // Continue rendering with empty tasks array
   }
 
   return (
@@ -21,7 +19,7 @@ export default async function HomePage() {
       <header className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Task Manager</h1>
         <p className="text-gray-600">
-          A structured Next.js + PostgreSQL application
+          A task creator.
         </p>
       </header>
       
